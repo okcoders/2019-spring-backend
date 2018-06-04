@@ -1,0 +1,20 @@
+{
+  "name": "okcoders-summer-2018-week1",
+  "version": "1.0.0",
+  "description": "2018 Summer OKCoders Backend Class Week 1",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "list": "ls -alh",
+    "start": "node ./app.js" 
+  },
+  "keywords": [
+    "Express",
+    "nodejs"
+  ],
+  "author": "Bob Rockers <rrockers@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
