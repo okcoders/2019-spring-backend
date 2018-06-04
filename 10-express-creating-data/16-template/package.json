@@ -9,11 +9,14 @@
     "body-parser": "~1.0.0",
     "cookie-parser": "~1.0.1",
     "debug": "~0.7.4",
-    "ejs": "^2.5.5",
+    "ejs": "^2.6.1",
     "express": "~4.2.0",
-    "mongodb": "^2.2.19",
+    "mongodb": "^2.2.35",
     "mongoose": "^3.8.13",
     "morgan": "~1.0.0",
+    "ms": "^2.1.1",
+    "qs": "^6.5.2",
+    "send": "^0.16.2",
     "static-favicon": "~1.0.0"
   }
 }
