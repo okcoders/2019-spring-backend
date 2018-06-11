@@ -305,18 +305,18 @@ For example, in MongoDB, the person table from the SQL example above will just l
 
 ```js
 [
-  {
-    id: 1,
-    firstName: 'Philip',
-    lastName: 'Dow',
-    joined: 'June 1 2013'
-  },
-  {
-    id: 2,
-    firstName: 'Zach',
-    lastName: 'Mays',
-    joined: 'October 30 2015'
-  }
+	{
+		id: 1,
+		firstName: 'Philip',
+		lastName: 'Dow',
+		joined: 'June 1 2013'
+	},
+	{
+		id: 2,
+		firstName: 'Zach',
+		lastName: 'Mays',
+		joined: 'October 30 2015'
+	}
 ]
 ```
 
@@ -332,22 +332,22 @@ But on the other hand, relationships can simply be embedded in a document. Consi
 
 ```js
 [
-  {
-    id: 1,
-    firstName: 'Philip',
-    lastName: 'Dow',
-    joined: 'June 1 2013'
-  },
-  {
-    id: 2,
-    firstName: 'Zach',
-    lastName: 'Mays',
-    joined: 'March 17 2014'
-    shoppingCart: {
-      lastModified: 'March 18 2016',
-      discount: 0
-    }
-  }
+	{
+		id: 1,
+		firstName: 'Philip',
+		lastName: 'Dow',
+		joined: 'June 1 2013'
+	},
+	{
+		id: 2,
+		firstName: 'Zach',
+		lastName: 'Mays',
+		joined: 'March 17 2014'
+		shoppingCart: {
+			lastModified: 'March 18 2016',
+			discount: 0
+		}
+	}
 ]
 ```
 
@@ -359,23 +359,23 @@ A one-to-many relationship could be modeled similarly, with the shopping cart at
 
 ```js
 [
-  ...,
-  {
-    id: 3,
-    firstName: 'Zach',
-    lastName: 'Mays',
-    joined: 'March 17 2014'
-    shoppingCart: [
-      {
-        lastModified: 'March 18 2014',
-        discount: 0
-      },
-      {
-        lastModified: 'March 21 2014',
-        discount: 25
-      }
-    ]
-  }
+	...,
+	{
+		id: 3,
+		firstName: 'Zach',
+		lastName: 'Mays',
+		joined: 'March 17 2014'
+		shoppingCart: [
+			{
+				lastModified: 'March 18 2014',
+				discount: 0
+			},
+			{
+				lastModified: 'March 21 2014',
+				discount: 25
+			}
+		]
+	}
 ]
 ```
 
