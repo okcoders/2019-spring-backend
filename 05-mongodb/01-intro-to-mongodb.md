@@ -534,3 +534,7 @@ Schemaless storage is a powerful feature of mongoDB and allows for the rapid pro
 ## Graphical utilities
 
 Using the command line to interact with your mongo data can be frustrating and error prone. The cross platform graphical client, [Robomongo](http://robomongo.org/), might be a better option for you.
+
+## Links
+
+[Mongo for SQL Deveopers](https://docs.mongodb.com/manual/reference/sql-comparison/)
