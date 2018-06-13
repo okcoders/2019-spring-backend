@@ -39,20 +39,6 @@ $and: [{}, {}]
 $or: [{}, {}]
 db.example.find({ $and: [{$or: [{name: "zach"}, {name: "test"}]}, {$or: [{diet: "veg"}, {wow: "oh"}]}]})
 
-## exercise
-answer these questions from the sample dataset
-http://jsonstudio.com/resources/
-mongoimport --db enron --collection emails --drop --file enron.json
-1. how many emails are there?
-2. what is the earliest email (in terms of date)
-3. what is the latest email?
-4. do any emails contain the word "money" in their text?
-4. what sender sent the most emails?
-
-## answers
-db.emails.find({text: /money/i}).limit(10)
-db.emails.find().sort({date: -1}).limit(1)
-db.emails.aggregate([{$group: {_id: "$sender", count: {$sum:1}}}, {$sort: {count: -1}}]
 
 ## CRUD
 

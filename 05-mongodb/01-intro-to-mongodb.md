@@ -38,7 +38,10 @@ The Windows executables will be installed in your Program Files directory, insid
 
 Using a database involves two applications: a database server or *daemon* that runs in the background and a database client with which you directly interact. MongoDB ships with the `mongodb` daemon and the `mongo` client.
 
-**Mac / Linux**
+**Mac / Linux / Windows**
+
+NOTE: The following instructions will work for Windows if using *Gitbash* (the command line terminal shipped with github desktop.)  We strongly recommend using it as the instructions will be identical. If you want to use the windows CMD.exe instead then use the information available on the [official documentation](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/).
+
 
 Start both the daemon and the client from the command line. Start the daemon first, as it actually implements the database.
 
@@ -62,18 +65,6 @@ If that occurs, execute the following command before running the daemon:
 ```
 $ ulimit -n 2048
 ```
-
-**Windows**
-
-First you will need to create the database path that mongo uses. In a Command Prompt type:
-
-```
-md \data\db
-```
-
-Then find the Mongo directory that the download installed. It will be in your `C:\Program Files`. Find the *bin* directory inside the Mongo directory. It contains a `mongod.exe` file. Run that program.
-
-If you have trouble installing or running mongo on windows, refer to the [official documentation](http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows/).
 
 **Connecting to the database**
 
@@ -501,6 +492,11 @@ As with arrays, we can query against attributes in the nested object. Simply use
 	"author.name": 'OK Coders'
 })
 ```
+niagara-4.4.73.24/bin/ndenv not found
+File /opt/niagara-4.4.73.24/bin/nre.sh not found
+File /opt/niagara-4.4.73.24/bin/ndsupport not found
+File /opt/niagara-4.4.73.24/bin/station.sh not found
+File /opt/niagara-4.4.73.24/bin/wb.sh not found
 
 You can nest as deeply as you like in a mongo document and can combine arrays and objects. Notice that we have to wrap the property name in quotes because the period `.` is not a legal character for a property name.
 
