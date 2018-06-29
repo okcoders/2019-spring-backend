@@ -48,6 +48,11 @@ desktop:
    how does the algorithm perform?). If I go from a list of 20 to a list of
    20000, how much longer does the program take?
 
+### Tutorials
+
+1. [Node.js & Express 101](https://www.youtube.com/watch?v=BN0JlMZCtNU) Nice easy mongo, node, express tutorial to refresh stuff you have learned.
+2. [Dead Simple Frontend](https://closebrace.com/tutorials/2017-03-02/the-dead-simple-step-by-step-guide-for-front-end-developers-to-getting-up-and-running-with-nodejs-express-and-mongodb) A non-video tutorial covering frontend development with node, mongo, and express.  Covers a LOT of the same material we did in class.
+
 ### Resources
 1. https://www.coursera.org/, udemy, etc. there are a ton now
 2. http://bigocheatsheet.com/
