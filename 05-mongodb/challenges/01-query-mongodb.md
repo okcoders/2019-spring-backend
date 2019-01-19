@@ -2,7 +2,7 @@
 
 Answer these questions from the sample dataset
 
-http://jsonstudio.com/resources/
+http://www.rockerssoft.org/docs/enron.zip
 
 You can use this command to import the data into a database called `enron` into a collection called `emails`
 

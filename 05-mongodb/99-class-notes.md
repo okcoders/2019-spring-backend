@@ -1,48 +1,74 @@
-# mongo
+# Overview
 
-## References
+Who has experience with databases?  Which ones?  What type of data did you store and for what purpose? 
 
-1. install
-2. get mongod instance running which locks a particular part of your filesystem
-down, and listens on a port on your localhost
-3. connect with the client (defaults to localhost)
-4. show dbs, use new db, insert into new collection, show collections
-5. select all from collection
+* Modeling
+	* Objects/Documents
+	* Attributes
+		* Data
+		* Type
+	* Collections
+		* Unique Identifiers
+	* Relationships
+		* One-to-one (has-a or belongs-to)
+		* Many-to-one
+		* Many-to-many
 
-all the above to show that there is a cli for dealing with your mongo database,
-we can also do these things from node by using the mongodb driver
+## SQL
 
-6. npm install --save mongodb
+Common examples are PostgreSQL, MySQL, SQLServer, and Oracle.  
 
-## quick guide
-mongo
-show dbs
-use <db>
-db.<collection>.insert()
-db.<collection>.find()
-db.<collection>.find({<where clause>, {<select clause>}}.sort()
-db.<collection>.count()
-db.<collection>.distinct({<some attribute>})
+* Access: SQL
+* Object: Row
+* Attribute: Column
+* Collections: Database
+* Relationships: Foreign keys
+* UID: User Defined
 
-db.<collection>.find({<attribute>: {$ne: undefined}})
-db.<collection>.findOne({_id: ObjectId("blah blah")})._id.getTimestamp()
-db.<collection>.distinct(<attribute>)
+## Document
 
-### update
-db.<collection>.update({}, { $set: {diet: "veg"} }, {multi: true})
+Also Called NoSQL, Non-Relational.  Common examples are BigTable, HBase, Cassandra, Mongo, Redis
 
-### delete
+* Access: ???
+* Object: Document
+* Attribute: Tag
+* Collection: Container/Store 
+	* collection does not require that you define a schema in advance f
+	* a collection supports nested data
+* Relationships: Tag
+* UID: ?
 
-AND and OR
+### Other notes
 
-$and: [{}, {}]
-$or: [{}, {}]
-db.example.find({ $and: [{$or: [{name: "zach"}, {name: "test"}]}, {$or: [{diet: "veg"}, {wow: "oh"}]}]})
-
+* Mongo stores as JSON objects.
+* Scheme repetes
+* Relationships can be respresented in many different ways.
 
 ## CRUD
 
-### CREATE 
+		CRUD Operation  | Command       | SQL      
+		----------------|---------------|--------------
+			create        |   insert      |    insert  
+			read          |   find        |    select  
+			update        |   update      |    update  
+			delete        |   remove      |    delete  
+
+
+The CRUD operators are all performed on the `db` object in the mongo client, and further on another object that targets the collection for the command. For example, if you want to work with documents in a `posts` collection, your commands will begin with `db.posts`. The commands will then be methods on this `db.posts` object.
+
+If you want to make changes to the comments collection, use `db.comments`. `db` here always refers to the currently used database.
+
+## MongoDB
+
+* Terminal 1: mongod --dbpath db
+* Terminal 2: mongo
+	* show dbs
+	* use blog
+	* show dbs
+
+### CRUD
+
+#### CREATE 
 
 Notice the UID being created for us
 
@@ -55,7 +81,7 @@ db.posts.insert({
 show collections
 ```
 
-### RETRIEVE
+#### RETRIEVE
 
 Simple
 ```
@@ -89,7 +115,7 @@ db.posts.find().skip(2).limit(1)
 
 ```
 
-### UPDATE
+#### UPDATE
 
 Take 2 arguments, a "find" and "do" 
 
@@ -104,7 +130,7 @@ db.posts.update({
 })
 ```
 
-### DELETE
+#### DELETE
 
 Delete a single post, again with the "find" argument
 
@@ -118,6 +144,25 @@ Delete everything
 
 ```
 db.posts.remove({})
+```
+
+Advanced  delete $and $or
+
+AND and OR
+
+$and: [{}, {}]
+$or: [{}, {}]
+
+```
+db.example.find({ $and: [{$or: [{name: "zach"}, {name: "test"}]}, {$or: [{diet: "veg"}, {wow: "oh"}]}]})
+````
+
+### Sublimiting Results
+
+Find can actually take an additional argument that allows you to limit the data returned:
+
+```
+> db.posts.find( {}, {title: true} )
 ```
 
 ### Nesting
@@ -158,3 +203,20 @@ Then select specific ones with dot notation
 })
 ```
 
+## Regular Expressions
+
+Find title that begins with the word **the** regardless of the case:
+
+```
+> db.posts.find({
+	title: /^the/i
+})
+```
+
+## Cursor Methods
+
+Use *after* our find methods to sub-limit the return values.  
+
+* sort()
+* limit()
+* skip()
