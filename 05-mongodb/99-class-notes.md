@@ -1,6 +1,6 @@
 # Overview
 
-Who has experience with databases?  Which ones?  What type of data did you store and for what purpose? 
+Who has experience with databases?  Which ones?  What type of data did you store and for what purpose?
 
 * Modeling
 	* Objects/Documents
@@ -16,7 +16,7 @@ Who has experience with databases?  Which ones?  What type of data did you store
 
 ## SQL
 
-Common examples are PostgreSQL, MySQL, SQLServer, and Oracle.  
+Common examples are PostgreSQL, MySQL, SQLServer, and Oracle.
 
 * Access: SQL
 * Object: Row
@@ -32,7 +32,7 @@ Also Called NoSQL, Non-Relational.  Common examples are BigTable, HBase, Cassand
 * Access: ???
 * Object: Document
 * Attribute: Tag
-* Collection: Container/Store 
+* Collection: Container/Store
 	* collection does not require that you define a schema in advance f
 	* a collection supports nested data
 * Relationships: Tag
@@ -46,12 +46,12 @@ Also Called NoSQL, Non-Relational.  Common examples are BigTable, HBase, Cassand
 
 ## CRUD
 
-		CRUD Operation  | Command       | SQL      
-		----------------|---------------|--------------
-			create        |   insert      |    insert  
-			read          |   find        |    select  
-			update        |   update      |    update  
-			delete        |   remove      |    delete  
+		CRUD            | MongoDB       | SQL           |  REST
+		----------------|---------------|---------------|---------------
+			create        |   insert      |   insert      |    PUT
+			read          |   find        |   select      |    GET
+			update        |   update      |   update      |    POST
+			delete        |   remove      |   delete      |    DELETE
 
 
 The CRUD operators are all performed on the `db` object in the mongo client, and further on another object that targets the collection for the command. For example, if you want to work with documents in a `posts` collection, your commands will begin with `db.posts`. The commands will then be methods on this `db.posts` object.
@@ -68,7 +68,7 @@ If you want to make changes to the comments collection, use `db.comments`. `db` 
 
 ### CRUD
 
-#### CREATE 
+#### CREATE
 
 Notice the UID being created for us
 
@@ -117,7 +117,7 @@ db.posts.find().skip(2).limit(1)
 
 #### UPDATE
 
-Take 2 arguments, a "find" and "do" 
+Take 2 arguments, a "find" and "do"
 
 ```
 db.posts.update({
@@ -191,7 +191,7 @@ Or Objects
 	body: "Lorem ipsum",
 	author: {
 		id: 1,
- 		name: "OK Coders"
+		name: "OK Coders"
 	}
 })
 ```
@@ -215,8 +215,9 @@ Find title that begins with the word **the** regardless of the case:
 
 ## Cursor Methods
 
-Use *after* our find methods to sub-limit the return values.  
+Use *after* our find methods to sub-limit the return values.
 
 * sort()
 * limit()
 * skip()
+
